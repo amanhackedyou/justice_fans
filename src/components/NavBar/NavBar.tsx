@@ -2,7 +2,6 @@
 
 import { AppData } from '@/utils/appdata'
 import React from 'react'
-import { IconType } from 'react-icons'
 import { FaArrowLeft } from 'react-icons/fa'
 
 interface NavBarActions {

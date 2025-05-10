@@ -96,7 +96,7 @@ export default function Login() {
                     transition={{ duration: 0.4, delay: 0.6 }}
                 >
                     <p className="text-sm text-gray-400">
-                        Don't have an account?{' '}
+                        Don&#39;t have an account?{' '}
                         <button
                             onClick={handleSignupRedirect}
                             className="text-pink-500 hover:underline"

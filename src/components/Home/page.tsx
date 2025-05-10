@@ -1,8 +1,7 @@
 "use client"
 
 import React, { useState } from 'react'
-import NavBar, { SeconderyNavBar } from '../NavBar/NavBar';
-import { IoSearchOutline } from 'react-icons/io5';
+import NavBar from '../NavBar/NavBar';
 import Post from '../Post';
 import AboutUs from '../AboutUs/page';
 

@@ -6,7 +6,7 @@ import Image from 'next/image';
 import React, { useState } from 'react'
 import { BiComment } from 'react-icons/bi';
 import { BsBookmark, BsBookmarkCheckFill, BsThreeDots } from 'react-icons/bs';
-import { FaPlay, FaRegComment } from 'react-icons/fa';
+import { FaPlay } from 'react-icons/fa';
 import { FiHeart } from 'react-icons/fi';
 import { GoHeartFill, GoVerified } from 'react-icons/go';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';

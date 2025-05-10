@@ -1,5 +1,4 @@
 import { AppData } from '@/utils/appdata';
-import React from 'react'
 
 const AboutUs = () => {
     return (
