@@ -4,7 +4,7 @@ import { useFullScreenMediaContext } from '@/context/FullScreenMediaContext';
 import { formatNumberHumanReadable } from '@/utils/utils';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BiComment } from 'react-icons/bi';
 import { BsBookmark, BsBookmarkCheckFill, BsThreeDots } from 'react-icons/bs';
 import { FaPlay } from 'react-icons/fa';
@@ -22,9 +22,13 @@ interface PostData {
 
 const Post = ({ userId, postId, likes, comments, isLiked = false, isSaved = false, profilePictureSrc, name, username, caption = "", posts, onLike, onSave }: { userId: string, postId: string, isLiked?: boolean, profilePictureSrc: string, name: string, username: string, caption?: string, posts: PostData[], isSaved?: boolean, onSave: Function, onLike: Function, likes: number, comments: number }) => {
     const [currentPostIndex, setCurrentPostIndex] = useState(0);
+    const [arrowShowing, setArrowShowing] = useState(false);
+
+
+
 
     return (
-        <div className='flex flex-col border-b border-gray-200 w-full'>
+        <div className='flex flex-col border-b border-gray-200 w-full' onMouseEnter={e => setArrowShowing(true)} onMouseLeave={e => setArrowShowing(false)}>
             <div className='p-4 flex flex-col gap-2'>
                 <div className='flex items-center justify-between'>
                     <div className='flex items-center space-x-3 w-full'>
@@ -58,9 +62,9 @@ const Post = ({ userId, postId, likes, comments, isLiked = false, isSaved = fals
                 <Slide
                     transitionDuration={200}
                     canSwipe
-                    // arrows={false}
+                    arrows={true}
                     nextArrow={
-                        <div className='p-4'>
+                        <div className={`p-4 hidden md:inline-block ${arrowShowing && posts.length > 1 ? "opacity-100" : "opacity-0"} transition-all duration-200`}>
                             <button className='w-8 min-w-8 max-w-8 flex items-center justify-center aspect-square rounded-full bg-white/20 backdrop-blur-sm cursor-pointer hover:bg-white/50'>
                                 <IoIosArrowForward />
                             </button>
@@ -68,7 +72,7 @@ const Post = ({ userId, postId, likes, comments, isLiked = false, isSaved = fals
                     }
 
                     prevArrow={
-                        <div className='p-4'>
+                        <div className={`p-4 hidden md:inline-block     ${arrowShowing && posts.length > 1 ? "opacity-100" : "opacity-0"} transition-all duration-200`}>
                             <button className='w-8 min-w-8 max-w-8 flex items-center justify-center aspect-square rounded-full bg-white/20 backdrop-blur-sm cursor-pointer hover:bg-white/50'>
                                 <IoIosArrowBack />
                             </button>
@@ -121,7 +125,7 @@ const PostView = ({ src, alt = "Post", postType, thumbnail = "" }: { src: string
 
 const InteractionButton = ({ icon, text, onClick = () => { } }: { icon: React.ReactNode, text?: string, onClick?: Function }) => {
     return (
-        <button onClick={(e) => onClick()} className='flex items-center outline-none gap-2 text-gray-500 hover:text-gray-600 active:text-gray-600'>
+        <button onClick={(e) => onClick()} className='flex items-center cursor-pointer outline-none gap-2 text-gray-500 hover:text-gray-700 active:text-gray-600'>
             <span className='text-2xl'>{icon}</span>
             {text && <span className='text-sm'>{text}</span>}
         </button>

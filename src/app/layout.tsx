@@ -4,6 +4,7 @@ import "./globals.css";
 import { AppData } from "@/utils/appdata";
 import SideBar from "@/components/SideBar/page";
 import { FullScreenMediaProvider } from "@/context/FullScreenMediaContext";
+import { SideBarProvider } from "@/context/SideBarContext";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -29,10 +30,12 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} antialiased flex items-start  w-screen overflow-hidden`}
       >
-        <FullScreenMediaProvider>
-          <SideBar />
-          {children}
-        </FullScreenMediaProvider>
+        <SideBarProvider>
+          <FullScreenMediaProvider>
+            {/* <SideBar /> */}
+            {children}
+          </FullScreenMediaProvider>
+        </SideBarProvider>
       </body>
     </html>
   );

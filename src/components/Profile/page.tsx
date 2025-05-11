@@ -90,7 +90,7 @@ const ProfilePage = () => {
                 <TabBar currentTab={tab} setTab={setTab} />
 
                 <section className='flex flex-col min-h-screen'>
-                    {tab === "Free" ? <MediaView /> : <div className='flex items-center justify-center w-full h-full' />}
+                    {tab === "Free" ? <MediaView /> : <PremiumPackageView isMobileMode />}
                 </section>
             </main>
 
