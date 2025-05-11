@@ -19,7 +19,7 @@ export const SideBarProvider = ({ children }: { children: ReactNode }) => {
     const pathname = usePathname();
 
     const isAllowedToShow = pathname.startsWith("/auth");
-    const [isLoggedIn, setIsLoggedIn] = useState(true);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     const LinkButton = ({
         icon,
@@ -46,7 +46,7 @@ export const SideBarProvider = ({ children }: { children: ReactNode }) => {
     };
 
     return <SideBarContext.Provider value={{ isMenuOpened, setIsMenuOpened }}>
-        <section className={`${isMenuOpened ? "translate-x-0" : "-translate-x-[100%]"} md:translate-0 transition-all duration-300 ease-in-out fixed top-0 left-0 z-[19] w-full h-full md:static md:min-w-[30vw] md:w-[30vw] px-10 pt-20- bg-white ${!isAllowedToShow ? 'hidden- flex flex-col' : 'hidden'}`}>
+        <section className={`${isMenuOpened ? "translate-x-0" : "-translate-x-[100%]"} md:translate-0 transition-all duration-300 ease-in-out fixed top-0 left-0 z-[19] w-full h-full md:static md:min-w-[30vw] md:w-[30vw] px-10 pt-16 bg-white ${!isAllowedToShow ? 'hidden- flex flex-col' : 'hidden'}`}>
             {isLoggedIn ? (
                 <>
                     <div className='w-full h-20 flex items-center gap-1 text-xs justify-center'>
@@ -70,6 +70,8 @@ export const SideBarProvider = ({ children }: { children: ReactNode }) => {
                         You&#39;`re not logged in.
                     </div>
                     <div className='flex flex-col w-full gap-2'>
+                        <LinkButton icon={<GrHomeRounded />} text='Home' href='/' isActive={pathname == "/"} />
+
                         <Link
                             onClick={e => setIsMenuOpened(false)}
                             href="/auth/login">

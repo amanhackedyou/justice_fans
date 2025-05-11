@@ -5,6 +5,7 @@ import { AppData } from "@/utils/appdata";
 import SideBar from "@/components/SideBar/page";
 import { FullScreenMediaProvider } from "@/context/FullScreenMediaContext";
 import { SideBarProvider } from "@/context/SideBarContext";
+import { Toaster } from "react-hot-toast";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -30,6 +31,11 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} antialiased flex items-start  w-screen overflow-hidden`}
       >
+        <Toaster
+          position="top-right"
+          reverseOrder={false}
+        />
+
         <SideBarProvider>
           <FullScreenMediaProvider>
             {/* <SideBar /> */}
