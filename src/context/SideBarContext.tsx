@@ -19,7 +19,7 @@ export const SideBarProvider = ({ children }: { children: ReactNode }) => {
     const pathname = usePathname();
 
     const isAllowedToShow = pathname.startsWith("/auth");
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
 
     const LinkButton = ({
         icon,
