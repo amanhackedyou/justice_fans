@@ -3,6 +3,7 @@
 import { useFullScreenMediaContext } from '@/context/FullScreenMediaContext';
 import { formatNumberHumanReadable } from '@/utils/utils';
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useState } from 'react'
 import { BiComment } from 'react-icons/bi';
 import { BsBookmark, BsBookmarkCheckFill, BsThreeDots } from 'react-icons/bs';
@@ -27,18 +28,20 @@ const Post = ({ userId, postId, likes, comments, isLiked = false, isSaved = fals
             <div className='p-4 flex flex-col gap-2'>
                 <div className='flex items-center justify-between'>
                     <div className='flex items-center space-x-3 w-full'>
-                        <Image width={60} height={60} className='w-10 max-10 min-10 aspect-square rounded-full object-center object-cover' src={profilePictureSrc} alt={`Profile picture of @${username}`} />
+                        <Link href={`/profile/${userId}`}>
+                            <Image width={60} height={60} className='w-11 max-11 min-11 aspect-square rounded-full object-center object-cover' src={profilePictureSrc} alt={`Profile picture of @${username}`} />
+                        </Link>
                         <div className='flex flex-col w-full'>
                             <div className='flex items-center justify-between'>
                                 <div className='flex gap-1'>
-                                    <span className='font-semibold text-lg leading-none'>{name}</span>
+                                    <Link href={`/profile/${userId}`} className='font-semibold text-lg leading-none'>{name}</Link>
                                     <GoVerified className='text-base mt-px text-pink-500' />
                                 </div>
                                 <button className='text-gray-400 text-2xl active:text-gray-600 hover:text-gray-600'>
                                     <BsThreeDots />
                                 </button>
                             </div>
-                            <span className='text-gray-500 text-sm leading-none'>@{username}</span>
+                            <Link href={`/profile/${userId}`} className='text-gray-500 text-sm leading-none'>@{username}</Link>
                         </div>
                     </div>
 
