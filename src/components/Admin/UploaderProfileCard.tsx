@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FiEdit, FiTrash, FiImage, FiVideo } from 'react-icons/fi';
 import FixedWindow from './ui/FixedWindow';
+import { useRouter } from 'next/navigation';
 
 interface UploaderProfile {
     id: string;
@@ -17,11 +18,14 @@ interface UploaderProfileCardProps {
 }
 
 const UploaderProfileCard: React.FC<UploaderProfileCardProps> = ({ profile, onEdit, onDelete }) => {
+    const router = useRouter();
+
     return (
 
         <div onClick={e => {
-            if (e.currentTarget == e.target) {
-                // TODO: Bring to the next page
+            //@ts-ignore
+            if (e.target.tagName != "BUTTON" && e.target.tagName != "svg" && e.target.tagName != "path") {
+                router.push(`/dashboard/profiles/${profile.id}`)
             }
         }} className="flex items-center cursor-pointer hover:bg-gray-50 justify-between bg-white rounded-xl shadow-md p-4 border border-gray-200 hover:shadow-lg transition-all">
             <div className="flex items-center gap-4">
