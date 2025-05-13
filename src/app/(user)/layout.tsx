@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { AppData } from "@/utils/appdata";
-import SideBar from "@/components/SideBar/page";
 import { FullScreenMediaProvider } from "@/context/FullScreenMediaContext";
 import { SideBarProvider } from "@/context/SideBarContext";
 import { Toaster } from "react-hot-toast";
