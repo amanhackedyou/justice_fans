@@ -17,6 +17,7 @@ export type Post = {
     linkCopies: number;
     saves: number; // Added saves field
     isHidden?: boolean;
+    membershipId?: string
 };
 
 type PostCardProps = {

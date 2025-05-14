@@ -23,7 +23,7 @@ const FixedWindow = (props: FixedWindowProps) => {
                     </button>
                     <span className='text-xl leading-none mt-[1px] font-medium text-gray-600'>{props.title}</span>
                 </div>
-                <div className='w-full h-full px-4 py-2 overflow-y-auto'>
+                <div className='w-full h-full px-4 py-2 overflow-y-auto custom-scroll- '>
                     {props.children}
                 </div>
             </div>

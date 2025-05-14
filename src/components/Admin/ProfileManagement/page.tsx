@@ -5,14 +5,19 @@ import PostsTab from './posts.tab';
 import MembershipsTab from './memberships.tab';
 import FixedWindow from '../ui/FixedWindow';
 import AddNewPostWindow from './add_new_post.component';
+import { MdEdit } from 'react-icons/md';
+import CreateOrUpdateMembership from './create_membership.window';
 
 const ProfileManagement = () => {
     const [tab, setTab] = useState("Posts");
-    const [isAddNewPostOpened, setIsAddNewPostOpened] = useState(true);
+    const [isAddNewPostOpened, setIsAddNewPostOpened] = useState(false);
+    const [isAddMembershipOpened, setIsAddMembershipOpened] = useState(false);
 
     return (
         <>
             {isAddNewPostOpened && <AddNewPostWindow onClose={() => setIsAddNewPostOpened(false)} />}
+            {isAddMembershipOpened && <CreateOrUpdateMembership onClose={() => setIsAddMembershipOpened(false)} />}
+
             <div className="w-full h-full flex flex-col gap-2 md:w-[60%]">
                 <h1 className="text-xl font-medium text-gray-600">Profile Management</h1>
 
@@ -40,6 +45,25 @@ const ProfileManagement = () => {
                             className="px-4 py-2 rounded-lg cursor-pointer bg-pink-500 text-white hover:bg-pink-600 transition font-medium text-sm"
                         >
                             + New Post
+                        </button>
+                    </div>
+                )}
+
+                {tab === 'Memberships' && (
+                    <div className="flex justify-end gap-4">
+                        {/* <button
+                            onClick={e => setIsAddMembershipOpened(true)}
+                            className="px-4 py-2 flex items-center gap-1 rounded-lg cursor-pointer bg-pink-500 text-white hover:bg-pink-600 transition font-medium text-sm"
+                        >
+                            <MdEdit />
+                            Metadata
+                        </button> */}
+
+                        <button
+                            onClick={e => setIsAddMembershipOpened(true)}
+                            className="px-4 py-2 rounded-lg cursor-pointer bg-pink-500 text-white hover:bg-pink-600 transition font-medium text-sm"
+                        >
+                            + New Membership
                         </button>
                     </div>
                 )}

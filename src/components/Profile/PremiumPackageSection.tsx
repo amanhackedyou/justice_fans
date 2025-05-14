@@ -197,7 +197,7 @@ export const PremiumPackage = (props: PremiumPackageProps) => {
 
 
 
-const ProfPreviewer = ({ src, alt = "Proof preview" }: { src: string, alt?: string }) => {
+export const ProfPreviewer = ({ src, alt = "Proof preview" }: { src: string, alt?: string }) => {
   // const useMediaContext = useFullScreenMediaContext();
 
   return <div className='w-full min-w-full aspect-square flex items-center- rounded-md overflow-hidden justify-center bg-black relative'>

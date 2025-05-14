@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FiX, FiUpload } from 'react-icons/fi';
 import FixedWindow from '../ui/FixedWindow';
 
-const AddNewPostWindow = ({ onClose }: { onClose: () => void }) => {
+const AddNewPostWindow = ({ onClose, membershipId = '' }: { onClose: () => void, membershipId?: string }) => {
     const [caption, setCaption] = useState('');
     const [mediaFiles, setMediaFiles] = useState<File[]>([]);
 
@@ -33,7 +33,7 @@ const AddNewPostWindow = ({ onClose }: { onClose: () => void }) => {
     const isValid = mediaFiles.length > 0;
 
     return (
-        <FixedWindow onClose={onClose} title='Upload Post'>
+        <FixedWindow onClose={onClose} title='Upload'>
             <div className="flex flex-col gap-4 p-6 w-full max-w-2xl mx-auto">
                 {/* Header */}
                 <div className="flex justify-between items-center">
